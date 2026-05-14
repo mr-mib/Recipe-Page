@@ -1,3 +1,7 @@
+/* ============================================================================
+   FONTS
+   ============================================================================ */
+
 @font-face {
   font-family: "Young Serif";
   src: url(/assets/fonts/young-serif/YoungSerif-Regular.ttf);
@@ -9,127 +13,290 @@
   font-weight: 400;
 }
 
+/* ============================================================================
+   DESIGN TOKENS
+   ============================================================================ */
+
 :root {
-  --background-color-body: hsl(30, 54%, 90%);
-  --background-color-page: hsl(0, 0%, 100%);
-  --background-color-preparation: hsl(330, 100%, 98%);
-  --color-tertiary: hsl(332, 51%, 32%);
-  --color-primary: hsl(14, 45%, 36%);
-  --color-text: hsl(30, 10%, 34%);
-  --color-list-title: hsl(24, 5%, 18%);
-  --color-unknown: hsl(30, 18%, 87%);
+  /* Colors - Semantic naming */
+  --color-background-page: hsl(0, 0%, 100%);
+  --color-background-body: hsl(30, 54%, 90%);
+  --color-background-accent: hsl(330, 100%, 98%);
 
+  --color-text-primary: hsl(30, 10%, 34%);
+  --color-text-accent: hsl(24, 5%, 18%);
 
+  --color-brand-primary: hsl(14, 45%, 36%);
+  --color-brand-secondary: hsl(332, 51%, 32%);
+
+  --color-border: hsl(30, 18%, 87%);
+
+  /* Typography */
+  --font-family-serif: "Young Serif";
+  --font-family-sans: "Outfit";
   --font-size-base: 1rem;
-  --font-family-title: "Young Serif";
-  --font-family-content: "Outfit";
+  --font-size-large: 1.2rem;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2.5rem;
+  --spacing-xl: 6rem;
+
+  /* Border Radius */
+  --border-radius-sm: 0.6rem;
+  --border-radius-md: 1rem;
+
+  /* Layout */
+  --max-width-content: 45%;
+  --padding-page: var(--spacing-lg);
+  --padding-body: var(--spacing-lg) 2.5rem;
 }
 
+/* ============================================================================
+   RESET & BASE STYLES
+   ============================================================================ */
+
 body {
-  background-color: var(--background-color-body);
-  font-family: var(--font-family-content);
+  background-color: var(--color-background-body);
+  font-family: var(--font-family-sans);
   font-size: var(--font-size-base);
-  color: var(--color-text);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+
   width: 100vw;
   min-height: 100vh;
+  padding: var(--padding-body);
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 6rem 2.5rem;
 }
 
-main.page {
-  background-color: var(--background-color-page);
-  max-width: 45%;
-  height: auto;
-
-  padding: 2.5rem;
-  border-radius: 1rem;
-
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-serif);
 }
 
-img.cover-img {
-  width: 100%;
-  border-radius: 1rem;
-}
-
-.intro {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.intro__header {
-  font-family: var(--font-family-title);
-}
-
-.intro__prep-time {
-  background-color: var(--background-color-preparation);
-  padding: 1.5rem;
-  border-radius: 0.6rem;
-}
-
-.prep-time__title {
-  font-size: 1.2rem;
-  color: var(--color-tertiary);
-  font-weight: 700;
-}
-
-ul, ol {
+ul,
+ol {
   padding-inline-start: 1.6rem;
   line-height: 2rem;
 }
 
-.list-title {
-  color: var(--color-list-title);
-  font-weight: 700;
-}
-
-section>h2 {
-    color: var(--color-primary);
-    font-family: var(--font-family-title);
-}
-
 li::before {
   content: "";
-  margin-right: 1rem;
+  padding-right: 1rem;
 }
 
 hr {
   width: 100%;
-  height: 0.2rem;
+  height: 0.1rem;
+  margin: 0;
+  border: none;
+  background-color: var(--color-border);
+}
+
+/* ============================================================================
+   RECIPE PAGE - MAIN CONTAINER
+   ============================================================================ */
+
+.recipe-page {
+  background-color: var(--color-background-page);
+  max-width: var(--max-width-content);
+  padding: var(--padding-page);
+  border-radius: var(--border-radius-md);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+/* ============================================================================
+   HERO IMAGE
+   ============================================================================ */
+
+.recipe-page__hero {
+  overflow: hidden;
+  border-radius: var(--border-radius-md);
+}
+
+.recipe-page__hero-image {
+  width: 100%;
+  display: block;
+}
+
+/* ============================================================================
+   RECIPE INTRODUCTION SECTION
+   ============================================================================ */
+
+.recipe-intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.recipe-intro__title {
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.recipe-intro__description {
+  line-height: 1.6;
+}
+
+/* ============================================================================
+   PREPARATION INFO
+   ============================================================================ */
+
+.prep-info {
+  background-color: var(--color-background-accent);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+}
+
+.prep-info__title {
+  font-size: var(--font-size-large);
+  color: var(--color-brand-secondary);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-sm);
+}
+
+.prep-info__item {
+  line-height: 2rem;
+}
+
+.prep-info__label {
+  color: var(--color-text-accent);
+  font-weight: var(--font-weight-bold);
+}
+
+/* ============================================================================
+   RECIPE SECTIONS (Ingredients, Instructions, Nutrition)
+   ============================================================================ */
+
+.recipe-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.recipe-section__title {
+  color: var(--color-brand-primary);
+  font-size: 1.75rem;
   margin: 0;
 }
 
-ol li::marker {
-  color: var(--color-primary);
-  font-weight: 700;
+.recipe-section__description {
+  line-height: 1.6;
 }
 
-.nutrition {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+.recipe-section__list {
+  margin: 0;
+  padding-inline-start: 1.6rem;
 }
 
-table {
+.recipe-section__list--ordered {
+  counter-reset: step-counter;
+}
+
+.recipe-section__item {
+  position: relative;
+  margin-bottom: var(--spacing-xs);
+}
+
+.recipe-section__step-title {
+  color: var(--color-text-accent);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Custom styling for ordered list */
+.recipe-section__list--ordered li {
+  list-style: decimal;
+}
+
+.recipe-section__list--ordered li::marker {
+  color: var(--color-brand-primary);
+  font-weight: var(--font-weight-bold);
+}
+
+/* ============================================================================
+   NUTRITION TABLE
+   ============================================================================ */
+
+.nutrition-table {
   width: 100%;
-  padding: 0 2rem;
+  border-collapse: collapse;
+  margin-top: var(--spacing-sm);
 }
 
-td {
-  padding: 1rem 0;
-  border-bottom: 1px solid var(--color-unknown);
+.nutrition-table__row {
+  border-bottom: 0.1rem solid var(--color-border);
 }
 
-td:last-child {
-  color: var(--color-primary);
-  font-weight: 700;
-}
-tr:last-child td {
+.nutrition-table__row:last-child {
   border-bottom: none;
+}
+
+.nutrition-table__label {
+  padding: var(--spacing-sm) 0;
+  padding-left: var(--spacing-lg);
+  color: var(--color-text-primary);
+}
+
+.nutrition-table__value {
+  padding: var(--spacing-sm) 0;
+  color: var(--color-brand-primary);
+  font-weight: var(--font-weight-bold);
+}
+
+/* ============================================================================
+   DIVIDER
+   ============================================================================ */
+
+.divider {
+  background-color: var(--color-border);
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  :root {
+    --max-width-content: 90%;
+    --padding-body: 2rem 1rem;
+  }
+
+  .recipe-page {
+    padding: var(--spacing-md);
+  }
+
+  .recipe-section__title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --max-width-content: 100%;
+    --padding-body: 1rem;
+  }
+
+  .recipe-intro__title {
+    font-size: 1.5rem;
+  }
+
+  .nutrition-table__label {
+    padding-right: var(--spacing-sm);
+  }
 }
