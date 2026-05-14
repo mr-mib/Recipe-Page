@@ -22,13 +22,13 @@ This is a solution to the [Recipe page challenge on Frontend Mentor](https://www
 
 ### Screenshot
 
-![](./screenshot-1.png)
-![](./screenshot-2.png)
+![screenshot of the top of the page](./screenshot-1.png)
+![screenshot of the bottom of the page](./screenshot-2.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://github.com/mr-mib/Recipe-Page](https://github.com/mr-mib/Recipe-Page)
+- Live Site URL: [https://mr-mib.github.io/Recipe-Page/](https://mr-mib.github.io/Recipe-Page/)
 
 ## My process
 
